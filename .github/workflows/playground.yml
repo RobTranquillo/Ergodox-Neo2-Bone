@@ -25,7 +25,14 @@ jobs:
         if: always()
         run: |
           echo "$GITHUB_WORKSPACE/${{ env.PROJECT_NAME }}.ipa" > ${{ env.PROJECT_NAME }}.ipa
+          echo '############'
           cat ${{ env.PROJECT_NAME }}.ipa
+          echo '############'
+          pwd
+          echo '############'
+          ls -lah
+          echo '############'
+          ls -lah $GITHUB_WORKSPACE
           
       # Stores the iOS package file
       - name: Store ipa 📦
@@ -33,5 +40,5 @@ jobs:
         if: success()
         with:
           name: ${{ env.PROJECT_NAME }}.ipa
-          path: "$GITHUB_WORKSPACE/${{ env.PROJECT_NAME }}.ipa"
+          path: $GITHUB_WORKSPACE
           if-no-files-found: error
