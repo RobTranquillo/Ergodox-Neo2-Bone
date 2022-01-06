@@ -25,6 +25,9 @@ jobs:
         if: always()
         run: |
           echo "$GITHUB_WORKSPACE/${{ env.PROJECT_NAME }}.ipa" > ${{ env.PROJECT_NAME }}.ipa
+          echo "$GITHUB_WORKSPACE/${{ env.PROJECT_NAME }}.ipa" > second.ipa
+          mkdir foobar
+          echo "foobar" > foobar/blubb.ipa
     
       # List files in Dir
       - name: List directories 📝
