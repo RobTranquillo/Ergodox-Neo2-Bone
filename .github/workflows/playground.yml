@@ -45,5 +45,5 @@ jobs:
         if: success()
         with:
           name: ipa package
-          path: ${{ github.workspace }}/**.ipa
+          path: ${{ github.workspace }}/**/*.ipa
           if-no-files-found: error
