@@ -24,10 +24,11 @@ jobs:
       - name: List directories 📝
         if: always()
         run: |
-          echo "Foobar Blubb \n" > f00bar.txt
-          echo $GITHUB_WORKSPACE >> f00bar.txt
+          echo "Foobar Blubb \n" > ${{ env.PROJECT_NAME }}.ipa
+          echo $GITHUB_WORKSPACE >> ${{ env.PROJECT_NAME }}.ipa
           echo ############
-          cat f00bar.txt
+          cat ${{ env.PROJECT_NAME }}.ipa
+          find `pwd`/..
           
       # Stores the iOS package file
       - name: Store ipa 📦
