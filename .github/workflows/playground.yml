@@ -1,0 +1,24 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Playground
+
+# Controls when the workflow will run
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  test:
+    name: Test ⚙️
+    runs-on: ubuntu-latest
+    steps:        
+      - name: List directories 📝
+        if: always()
+        run: |
+          find ../
+          echo "Foobar Blubb \n" > f00bar.txt
+          echo $GITHUB_WORKSPACE >> f00bar.txt
+          cat f00bar.txt
+          
