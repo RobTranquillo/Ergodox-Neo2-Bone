@@ -21,7 +21,7 @@ jobs:
         run: echo "PROJECT_NAME=DasTollsteProjektDerWeltYeah" >> $GITHUB_ENV
     
       # Create file
-      - name: List directories 📝
+      - name: Create file 📝
         if: always()
         run: |
           echo "$GITHUB_WORKSPACE/${{ env.PROJECT_NAME }}.ipa" > ${{ env.PROJECT_NAME }}.ipa
@@ -42,5 +42,5 @@ jobs:
         if: success()
         with:
           name: ${{ env.PROJECT_NAME }}.ipa
-          path: $GITHUB_WORKSPACE/${{ env.PROJECT_NAME }}.ipa
+          path: ${{ github.workspace }}/${{ env.PROJECT_NAME }}.ipa
           if-no-files-found: error
