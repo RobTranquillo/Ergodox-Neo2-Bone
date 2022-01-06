@@ -42,5 +42,5 @@ jobs:
         if: success()
         with:
           name: ${{ env.PROJECT_NAME }}.ipa
-          path: ${{ github.workspace }}/${{ env.PROJECT_NAME }}.ipa
+          path: ${{ github.workspace }}/*.ipa
           if-no-files-found: error
