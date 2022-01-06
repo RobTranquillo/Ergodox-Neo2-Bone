@@ -44,6 +44,6 @@ jobs:
         uses: actions/upload-artifact@v2
         if: success()
         with:
-          name: ${{ env.PROJECT_NAME }}.ipa
-          path: ${{ github.workspace }}/*.ipa
+          name: ipa package
+          path: ${{ github.workspace }}/**.ipa
           if-no-files-found: error
