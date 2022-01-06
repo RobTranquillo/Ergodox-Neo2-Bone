@@ -36,9 +36,9 @@ jobs:
           
       # Stores the iOS package file
       - name: Store ipa 📦
-        uses: actions/upload-artifact@v2.2.3
+        uses: actions/upload-artifact@v2
         if: success()
         with:
           name: ${{ env.PROJECT_NAME }}.ipa
-          path: $GITHUB_WORKSPACE
+          path: $GITHUB_WORKSPACE/${{ env.PROJECT_NAME }}.ipa
           if-no-files-found: error
