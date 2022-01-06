@@ -33,5 +33,5 @@ jobs:
         if: success()
         with:
           name: ${{ env.PROJECT_NAME }}.ipa
-          path: $GITHUB_WORKSPACE/${{ env.PROJECT_NAME }}.ipa
+          path: "$GITHUB_WORKSPACE/${{ env.PROJECT_NAME }}.ipa"
           if-no-files-found: error
