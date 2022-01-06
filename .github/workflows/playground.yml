@@ -14,11 +14,26 @@ jobs:
     name: Test ⚙️
     runs-on: ubuntu-latest
     steps:        
+      
+      # Gets the project name
+      - name: Get project name 📝
+        if: success()
+        run: echo "PROJECT_NAME=DasTollsteProjektDerWeltYeah" >> $GITHUB_ENV
+    
+      # List directorys
       - name: List directories 📝
         if: always()
         run: |
-          find ../
           echo "Foobar Blubb \n" > f00bar.txt
           echo $GITHUB_WORKSPACE >> f00bar.txt
+          echo ############
           cat f00bar.txt
           
+      # Stores the iOS package file
+      - name: Store ipa 📦
+        uses: actions/upload-artifact@v2.2.3
+        if: success()
+        with:
+          name: ${{ env.PROJECT_NAME }}.ipa
+          path: $GITHUB_WORKSPACE/${{ env.PROJECT_NAME }}.ipa
+          if-no-files-found: error
