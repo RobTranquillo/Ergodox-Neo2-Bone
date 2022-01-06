@@ -20,19 +20,21 @@ jobs:
         if: success()
         run: echo "PROJECT_NAME=DasTollsteProjektDerWeltYeah" >> $GITHUB_ENV
     
-      # List directorys
+      # Create file
       - name: List directories 📝
         if: always()
         run: |
           echo "$GITHUB_WORKSPACE/${{ env.PROJECT_NAME }}.ipa" > ${{ env.PROJECT_NAME }}.ipa
-          echo '############'
-          cat ${{ env.PROJECT_NAME }}.ipa
-          echo '############'
+    
+      # List files in Dir
+      - name: List directories 📝
+        if: always()
+        run: |
           pwd
           echo '############'
           ls -lah
           echo '############'
-          ls -lah $GITHUB_WORKSPACE
+          ls -lah $GITHUB_WORKSPACE          
           
       # Stores the iOS package file
       - name: Store ipa 📦
